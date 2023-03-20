@@ -12,7 +12,7 @@ alt.renderers.enable('mimetype')
 
 
 # Data - Loading and Pre-processing
-raw = pd.read_csv('data/player_stats.csv')
+raw = pd.read_csv(r'../data/player_stats.csv')
 player = raw[['Player', 'Year', 'Pos', 'Tm', 'G',
              'FG%', 'FT%', '3P%', 'ORB%', 'AST%', 
              'BLK%', 'DRB%', 'STL%'
@@ -29,7 +29,9 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 # app = dash.Dash(__name__, external_stylesheets=[dbc.themes.UNITED]) 
 # app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LITERA]) 
 # app = dash.Dash(__name__, external_stylesheets=[dbc.themes.JOURNAL]) 
+app.title = 'NBA Player Comparison'
 server = app.server
+
 
 # Front-end - START
 app.layout = html.Div([
