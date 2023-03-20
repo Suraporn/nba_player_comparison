@@ -25,6 +25,7 @@ player = player.rename(columns={'Player':'Name','Tm':'Team','G':'Game',
             })
 # player = player.tail(3000)
 player['Year'] = player['Year'].astype(int)
+player = player.groupby(['Name', 'Year']).mean().round(2).reset_index()
 
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
