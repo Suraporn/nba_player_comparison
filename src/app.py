@@ -278,7 +278,7 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
         text=def_title,
         anchor='start')).mark_point().encode(
         x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max))),
-        y = def_selection,
+        y = alt.Y(def_selection, title=def_stat),
         color = alt.Color('Name', title='Player')
     ).properties(
     width=700,
@@ -288,7 +288,7 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
         text=def_title,
         anchor='start')).mark_line().encode(
         x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max))),
-        y = def_selection,
+        y = alt.Y(def_selection, title=def_stat),
         color = alt.Color('Name', title='Player')
     ).properties(
     width=700,
