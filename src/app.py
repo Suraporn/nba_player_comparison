@@ -29,8 +29,9 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 # app = dash.Dash(__name__, external_stylesheets=[dbc.themes.UNITED]) 
 # app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LITERA]) 
 # app = dash.Dash(__name__, external_stylesheets=[dbc.themes.JOURNAL]) 
-app.title = 'NBA Player Comparison'
 server = app.server
+app.title = 'NBA Player Comparison'
+
 
 
 # Front-end - START
