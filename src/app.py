@@ -24,6 +24,7 @@ player = player.rename(columns={'Player':'Name','Tm':'Team','G':'Game',
              'BLK%':'BLKp', 'DRB%':'DRBp', 'STL%':'STLp'
             })
 player['Year'] = player['Year'].astype(int)
+player = player.tail(4500)
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 # app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SIMPLEX]) 
