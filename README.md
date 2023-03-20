@@ -5,7 +5,7 @@ The NBA Player Comparison dashboard can be accessed [here](https://cchchechen.sh
 
 ## Welcome!
 
-Welcome to the `NBA Player Comparison` App  :confetti_ball:  ！
+Welcome to the `NBA Player Comparison` app  :confetti_ball:  ！
 
 Thank you for visiting my project and hope all of you can enjoy browsing the NBA player performance.
 
@@ -42,9 +42,9 @@ The visualization is designed to display multiple statistics of NBA players. The
 
 - Statistics of the last 5 years of selected players.
 
-- A check box to choose an offensive skill to compare such as Field Goal Percentage(FGp), Free Throw Percentage(FTp), 3-Point Percentage(3Pp), Offensive Rebound Percentage(ORBp), Assist Percentage(ASTp).
+- A check box to choose an offensive skill to compare such as `Field Goal Percentage(FGp)`, `Free Throw Percentage(FTp)`, `3-Point Percentage(3Pp)`, `Offensive Rebound Percentage(ORBp)`, `Assist Percentage(ASTp)`.
 
-- A check box to choose a defensive skill to compare such as Block Percentage(BLKp), Defensive Rebound Percentage(DRBp), Steal Percentage(STLp).
+- A check box to choose a defensive skill to compare such as `Block Percentage(BLKp)`, `Defensive Rebound Percentage(DRBp)`, `Steal Percentage(STLp)`.
 
 We provides two charts to visualize and compare the players' skills.
 

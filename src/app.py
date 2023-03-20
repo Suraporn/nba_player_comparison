@@ -35,9 +35,19 @@ server = app.server
 app.layout = html.Div([
 
     # Row1 = Title and Logo
-    html.Img(src='/img/nba_logo.jpg'),
-    # html.Img(src=dash.get_asset_url('img/nba_logo.png')),
-    html.H1('NBA Player Statistics Comparison', style={'textAlign': 'center'}),
+    html.Div(
+        style={
+            'display': 'flex',
+            'justify-content': 'center',
+            'align-items': 'center',
+            # 'height': '5vh'
+        },
+        children=[
+        # html.Img(src='/img/nba_logo.jpg'),
+        # html.Img(src=dash.get_asset_url('img/nba_logo.png')),
+        html.H1('NBA Player Statistics Comparison', style={'textAlign': 'center', 'align-items':'center', 'justify-content':'center'})
+        ]
+    ),
 
     # Row2 = Search players
     dbc.Row([
