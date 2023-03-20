@@ -6,10 +6,10 @@ import numpy as np
 import altair as alt
 # from vega_datasets import data
 # Handle large data sets without embedding them in the notebook
-alt.data_transformers.enable('data_server')
+# alt.data_transformers.enable('data_server')
 # Include an image for each plot since Gradescope only supports displaying plots as images
 # alt.renderers.enable('mimetype')
-alt.renderers.enable('default')
+# alt.renderers.enable('default')
 
 
 # Data - Loading and Pre-processing
@@ -23,8 +23,9 @@ player = player.rename(columns={'Player':'Name','Tm':'Team','G':'Game',
              'FG%':'FGp', 'FT%':'FTp', '3P%':'3Pp', 'ORB%':'ORBp', 'AST%':'ASTp', 
              'BLK%':'BLKp', 'DRB%':'DRBp', 'STL%':'STLp'
             })
+# player = player.tail(3000)
 player['Year'] = player['Year'].astype(int)
-player = player.tail(4500)
+
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 # app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SIMPLEX]) 
@@ -224,9 +225,10 @@ app.layout = html.Div([
 
 def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy()):
 
-    filter_playerA = df.loc[(player['Name']==player_A)].tail(5)
-    filter_playerB = df.loc[(player['Name']==player_B)].tail(5)
-    filter_player = df.loc[(player['Name']==player_A) | (player['Name']==player_B)]
+    df['Year'] = df['Year'].astype(int)
+    filter_playerA = df.loc[(df['Name']==player_A)].tail(5)
+    filter_playerB = df.loc[(df['Name']==player_B)].tail(5)
+    filter_player = df.loc[(df['Name']==player_A) | (df['Name']==player_B)]
     x_min=filter_player['Year'].min()
     x_max=filter_player['Year'].max()
 
@@ -247,7 +249,7 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
     chart_off1 = alt.Chart(filter_player, title=alt.TitleParams(
         text=off_title,
         anchor='start')).mark_point().encode(
-        x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max))),
+        x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max)), axis=alt.Axis(labelExpr="format(datum.value, 'd')")),
         y = alt.Y(off_selection, title=off_stat),
         color = alt.Color('Name', title='Player')
     ).properties(
@@ -257,7 +259,7 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
     chart_off2 = alt.Chart(filter_player, title=alt.TitleParams(
         text=off_title,
         anchor='start')).mark_line().encode(
-        x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max))),
+        x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max)), axis=alt.Axis(labelExpr="format(datum.value, 'd')")),
         y = alt.Y(off_selection, title=off_stat),
         color = alt.Color('Name', title='Player')
     ).properties(
@@ -279,7 +281,7 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
     chart_def1 = alt.Chart(filter_player, title=alt.TitleParams(
         text=def_title,
         anchor='start')).mark_point().encode(
-        x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max))),
+        x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max)), axis=alt.Axis(labelExpr="format(datum.value, 'd')")),
         y = alt.Y(def_selection, title=def_stat),
         color = alt.Color('Name', title='Player')
     ).properties(
@@ -289,7 +291,7 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
     chart_def2 = alt.Chart(filter_player, title=alt.TitleParams(
         text=def_title,
         anchor='start')).mark_line().encode(
-        x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max))),
+        x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max)), axis=alt.Axis(labelExpr="format(datum.value, 'd')")),
         y = alt.Y(def_selection, title=def_stat),
         color = alt.Color('Name', title='Player')
     ).properties(
