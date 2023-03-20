@@ -4,6 +4,11 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 import numpy as np
 import altair as alt
+from vega_datasets import data
+# Handle large data sets without embedding them in the notebook
+alt.data_transformers.enable('data_server')
+# Include an image for each plot since Gradescope only supports displaying plots as images
+alt.renderers.enable('mimetype')
 
 
 # Data - Loading and Pre-processing
@@ -19,9 +24,10 @@ player = player.rename(columns={'Player':'Name','Tm':'Team','G':'Game',
             })
 player['Year'] = player['Year'].astype(int)
 
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 # Front-end - START
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.layout = html.Div([
 
     # Row1 = Title and Logo
@@ -31,50 +37,56 @@ app.layout = html.Div([
 
     # Row2 = Search players
     dbc.Row([
+        dbc.Card([
         # Col - Player A
-        dbc.Col([
-            html.P('Player A'),
-            # Dropdown - Player A
-            dcc.Dropdown(
-                id='dd_player_A', 
-                style={'height':'30px', 'align-items':'center', 'justify-content':'center'},
-                value = 'LeBron James',
-                options = player['Name'].unique(),
-                multi = False,
-                placeholder = 'Select player A'),
+            dbc.Col([
+                html.H4('Select Player A'),
+                # Dropdown - Player A
+                dcc.Dropdown(
+                    id='dd_player_A', 
+                    style={'height':'40px', 'align-items':'center', 'justify-content':'center', 'font-weight': 'bold'},
+                    value = 'LeBron James',
+                    options = player['Name'].unique(),
+                    multi = False,
+                    placeholder = 'Select player A'),
+                    html.P(""),
+                html.P('Last 5 years data', style={'text-decoration': 'underline'}),
+                dash_table.DataTable(
+                    id='datatable_A',
+                    columns=[{'name': i, 'id': i} for i in player.columns],
+                    data=player.to_dict('records')
+                )
+            ], style={'textAlign': 'center'})
+        ],style={'width': '60rem'}),
+
+        dbc.Card([
+            # Col - Player B
+            dbc.Col([
+                html.H4("Select Player B"),
+                # Dropdown - Player B
+                dcc.Dropdown(
+                    id='dd_player_B', 
+                    style={'height':'40px', 'align-items':'center', 'justify-content':'center', 'font-weight': 'bold'},
+                    value = 'Kobe Bryant',
+                    options = player['Name'].unique(),
+                    multi = False,
+                    placeholder = 'Select player B'),
                 html.P(""),
-            html.P('Player A - Detail'),
-            dash_table.DataTable(
-                id='datatable_A',
-                columns=[{'name': i, 'id': i} for i in player.columns],
-                data=player.to_dict('records')
-            )
+                html.P('Last 5 years data', style={'text-decoration': 'underline'}),
+                dash_table.DataTable(
+                    id='datatable_B',
+                    columns=[{'name': i, 'id': i} for i in player.columns],
+                    data=player.to_dict('records')
+                )
+            ], style={'textAlign': 'center'})
+        ],style={'width': '59rem'})
 
-        ], style={'textAlign': 'center'}),
-
-        # Col - Player B
-        dbc.Col([
-            html.P("Player B"),
-            # Dropdown - Player B
-            dcc.Dropdown(
-                id='dd_player_B', 
-                style={'height':'30px', 'align-items':'center', 'justify-content':'center'},
-                value = 'Kobe Bryant',
-                options = player['Name'].unique(),
-                multi = False,
-                placeholder = 'Select player B'),
-            html.P(""),
-            html.P("Player B - Detail"),
-            dash_table.DataTable(
-                id='datatable_B',
-                columns=[{'name': i, 'id': i} for i in player.columns],
-                data=player.to_dict('records')
-            )
-        ], style={'textAlign': 'center'})
     ], style={'textAlign': 'center'}),
-    html.P(""),
 
     # Row3 - Offensive Dropdown
+    html.P(""),
+    html.P(""),
+    html.H4("Offensive Statistics Comparison", style={'text-align': 'center'}),
     html.Div(
         style={
             'display': 'flex',
@@ -123,6 +135,7 @@ app.layout = html.Div([
     ),
 
     # Row5 - Defensive Dropdown
+    html.H4("Defensive Statistics Comparison", style={'text-align': 'center'}),
     html.Div(
         style={
             'display': 'flex',
@@ -197,19 +210,56 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
     filter_player = df.loc[(player['Name']==player_A) | (player['Name']==player_B)]
     x_min=filter_player['Year'].min()
     x_max=filter_player['Year'].max()
+
+    off_stat = ''
+    if off_selection == 'FGp':
+        off_stat = 'Field Goal Percentage'
+    elif off_selection == 'FTp':
+        off_stat = 'Free Throw Percentage'
+    elif off_selection == '3Pp':
+        off_stat = '3-Point Percentage'
+    elif off_selection == 'ORBp':
+        off_stat = 'Offensive Rebound Percentage'
+    elif off_selection == 'ASTp':
+        off_stat = 'Assist Percentage'
+    else: off_stat = ''
     
-    off_title = "Offensive Statistic Comparison : " + off_selection
-    chart_off = alt.Chart(filter_player, title=off_title).mark_point().encode(
+    off_title = off_stat + " Comparison"
+    chart_off1 = alt.Chart(filter_player, title=alt.TitleParams(
+        text=off_title,
+        anchor='start')).mark_point().encode(
         x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max))),
-        y = off_selection,
+        y = alt.Y(off_selection, title=off_stat),
         color = alt.Color('Name', title='Player')
     ).properties(
     width=700,
     height=200
-)
+    )
+    chart_off2 = alt.Chart(filter_player, title=alt.TitleParams(
+        text=off_title,
+        anchor='start')).mark_line().encode(
+        x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max))),
+        y = alt.Y(off_selection, title=off_stat),
+        color = alt.Color('Name', title='Player')
+    ).properties(
+    width=700,
+    height=200
+    )
+    chart_off = chart_off1 + chart_off2
 
-    def_title = "Defensive Statistic Comparison : " + def_selection
-    chart_def = alt.Chart(filter_player, title=def_title).mark_point().encode(
+    def_stat = ''
+    if def_selection == 'BLKp':
+        def_stat = 'Block Percentage'
+    elif def_selection == 'DRBp':
+        def_stat = 'Defensive Rebound Percentage'
+    elif def_selection == 'STLp':
+        def_stat = 'Steal Percentage'
+    else: def_stat = ''
+
+    def_title = def_stat + " Comparison"
+    chart_def1 = alt.Chart(filter_player, title=alt.TitleParams(
+        text=def_title,
+        anchor='start')).mark_point().encode(
         x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max))),
         y = def_selection,
         color = alt.Color('Name', title='Player')
@@ -217,6 +267,17 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
     width=700,
     height=200
     )
+    chart_def2 = alt.Chart(filter_player, title=alt.TitleParams(
+        text=def_title,
+        anchor='start')).mark_line().encode(
+        x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max))),
+        y = def_selection,
+        color = alt.Color('Name', title='Player')
+    ).properties(
+    width=700,
+    height=200
+    )
+    chart_def = chart_def1 + chart_def2 
 
     return filter_playerA.to_dict('records'), filter_playerB.to_dict('records'), chart_off.to_html(), chart_def.to_html()
 
