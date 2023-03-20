@@ -1,6 +1,6 @@
 # NBA Player Comparison
 
-The NBA Player Comparison dashboard can be accessed [here](https://cchchechen.shinyapps.io/NBA_Player_Stats/)
+The NBA Player Comparison dashboard can be accessed [here](https://nba-player-comparison.onrender.com)
 
 
 ## Welcome!
