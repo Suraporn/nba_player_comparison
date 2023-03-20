@@ -5,11 +5,11 @@ The NBA Player Comparison dashboard can be accessed [here](https://cchchechen.sh
 
 ## Welcome!
 
-Welcome to the repository of the NBA Performance App  :confetti_ball:  ！
+Welcome to the `NBA Player Comparison` App  :confetti_ball:  ！
 
-Thank you for visiting our project,hope all of you can enjoy browsing the NBA player performance.
+Thank you for visiting my project and hope all of you can enjoy browsing the NBA player performance.
 
-This document provides basic information of this NBA Player Performance.Please feel free to navigate each section by the list below: 
+This document provides statistics comparison of NBA Player Players form 1950 till 2017. Please feel free to navigate each section by the list below: 
 
 * [What are we doing?](#what-are-we-doing)
 * [Description of App](#description-of-app)
@@ -21,79 +21,62 @@ This document provides basic information of this NBA Player Performance.Please f
 
 ### The problem
 
-How can we understand a NBA player's historical performance and skills during their career?
-
+How can we compare different key abilities of each NBA players?
 
 ### The solution
 
-The NBA performance app will:
+The `NBA Player Comparison` app will:
 
-* Improve visibility for the player's historical performance data.
-* Help NBA fans better understand their favorite players and visualize how the players have performed historically over time and across players and teams.
-* Let fans to determine a player's style such as what kind of player he is, how many games he plays, how much he scores per game, the number of assists, etc., and use this as a starting point to get to know a new player better. 
+* Help comparing NBA player skills between players
+* Help NBA fans better understand their favorite players and visualize the players performances in each categories such as offensive skills and defensive skills.
 
-The most important thing is that we can honor and learn those former NBA superstars, such as Micheal Jordan and Kobe Bryant, by visualizing their performances. For instance, Kobe Bryant, we can learn about the wonders the legendary superstar created with the Lakers and the glory of the purple and gold dynasty with scored 33,643 points, 7,047 rebounds, and 6,306 assists during the entire career. Salute to the eternal Lakers #24.
+The most important thing is that we can honor and learn those former NBA superstars, such as Micheal Jordan and Kobe Bryant, by visualizing their performances.
 
 ## Description of App
 
-The visualization app contains a landing page that shows NBA player performances. The visualization comprises the data of over 500 NBA players among 30 NBA teams. This app aims to help enthusiast NBA fans to understand better and assess NBA player performances.
+The `NBA Player Comparison` app contains a landing page that shows NBA player skills in multiple categories. The visualization comprises the data of over xx NBA players among 30 NBA teams from 1950-2017. This app aims to help enthusiast NBA fans compare and understand abilities of players. 
 
-The visualization is designed to display multiple statistics of NBA players. The app allows users to search for an interested NBA player by name with a search box item, for example, "Micheal Jordan", the app then shows the corresponding player's information. Furthermore. the users then are able to filter and scope the performances of the players with three types of filters,
+The visualization is designed to display multiple statistics of NBA players. The app allows users to search for a pair of interested NBA players by name with a search box item, the app then shows the corresponding player's information. Furthermore. the users are able to select both offensive skills and defensive skills to compare. The app provides functionalities as,
 
-- A slider of the year the player plays in NBA. 
+- Player name search bar to choose a pair of players to compare.
 
-- A check box of statistics to show.
+- Statistics of the last 5 years of selected players.
 
-- A check box of the team the player plays for. 
+- A check box to choose an offensive skill to compare such as Field Goal Percentage(FGp), Free Throw Percentage(FTp), 3-Point Percentage(3Pp), Offensive Rebound Percentage(ORBp), Assist Percentage(ASTp).
 
-- A Tick box of the whole career statistics of the player.
+- A check box to choose a defensive skill to compare such as Block Percentage(BLKp), Defensive Rebound Percentage(DRBp), Steal Percentage(STLp).
 
-We aim to offer three charts of player performances; Scoring performance(Point per game, Shooting accuracy), Game play(Number of games), and Skill indicators(Point per game, Total Rebound per game, Assist per game, Steal per game, and Block per game). These will show the player's performances according to the player search and its filter.
+We provides two charts to visualize and compare the players' skills.
 
-Therefore, users can study each NBA player's performance in detail and understand more about the player they are interested in.
+Therefore, users can compare each NBA player's performance in detail and understand more about the player they are interested in.
 
 
 ## Sketch
-<img src="img/dashboard_design_version4.png">
+<img src="img/dashboard_design_version1.png">
 
 ## Contributors
-The contributors of this project are Peng Zhang, Fujie Sun, Chen Lin, and Nate Puangpanbut.
+The contributors of this project is Nate Puangpanbut.
 
-## Installation
+## Usage
 
-To install `nba_player_stat` locally, you can:
+To install `nba_player_comparison` locally, you can:
 
 1. Clone this repository with:
 
 ```
-git clone https://github.com/UBC-MDS/nba_player_stat.git
+git clone https://github.com/Suraporn/nba_player_comparison.git
 ```
 
-2. Run the following command in your R console to install the required libraries locally:
+2. xxx
 
-```{r}
-install.packages(c('tidyverse', 'dplyr', 'plyr', 'shiny', 'ggplot2', 'plotly', 'rvest', 'ggrepel', 'readr', 'RCurl', 'jpeg', 'thematic', 'httr', 'stringr', 'htmltools', 'devtools'))
-```
-```{r}
-devtools::install_github("ricardo-bion/ggradar", 
-                          dependencies = TRUE)
-```
-
-3. Finally, run the app locally by: 
-
-- Open `Rstudio`, navigate to the project folder, open `app.R` and run it by clicking `Run` button on the top-right of RStudio.
-
-- Open a command line, navigate to the project folder, run the following command to run the app locally:
-    ```
-    RScript app.R
-    ```
+3. xxx
 
 ## Get involved 
 
-If you have any new ideas and suggestions for improvement about this app, please feel free to contact us. The main contact email is: althrunsun@gmail.com
+If you have any new ideas and suggestions for improvement about this app, please feel free to contact us. The main contact email is: suraporn83@gmail.com
 
 Please note that it's very important to us that we maintain a positive and supportive environment for everyone who wants to participate. You can check the code of conduct for more details if you want to be with us.
 
 # License
-`nba_player_stat` is licensed under the terms of the MIT license.
-Please refer to the License File [here](https://github.com/UBC-MDS/nba_player_stat/blob/main/LICENSE)
+`nba_player_comparison` is licensed under the terms of the MIT license.
+Please refer to the License File [here](https://github.com/Suraporn/nba_player_comparison/blob/main/LICENSE)
