@@ -8,7 +8,8 @@ import altair as alt
 # Handle large data sets without embedding them in the notebook
 alt.data_transformers.enable('data_server')
 # Include an image for each plot since Gradescope only supports displaying plots as images
-alt.renderers.enable('mimetype')
+# alt.renderers.enable('mimetype')
+alt.renderers.enable('default')
 
 
 # Data - Loading and Pre-processing
