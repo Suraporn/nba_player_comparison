@@ -52,7 +52,7 @@ Therefore, users can compare each NBA player's performance in detail and underst
 
 
 ## Sketch
-<img src="img/dashboard_design_version1.png">
+<img src="img/dashboard_design_version2.png">
 
 ## Contributors
 The contributors of this project is Nate Puangpanbut.
