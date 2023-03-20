@@ -4,7 +4,7 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 import numpy as np
 import altair as alt
-from vega_datasets import data
+# from vega_datasets import data
 # Handle large data sets without embedding them in the notebook
 alt.data_transformers.enable('data_server')
 # Include an image for each plot since Gradescope only supports displaying plots as images

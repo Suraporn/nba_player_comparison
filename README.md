@@ -1,8 +1,7 @@
-# NBA Player Performances 
+# NBA Player Comparison
 
-[Hosted on shinyapps.io](https://cchchechen.shinyapps.io/NBA_Player_Stats/)
+The NBA Player Comparison dashboard can be accessed [here](https://cchchechen.shinyapps.io/NBA_Player_Stats/)
 
-***A comprehensive NBA player data visualization dashboard application.***
 
 ## Welcome!
 
