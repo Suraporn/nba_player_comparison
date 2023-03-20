@@ -25,6 +25,10 @@ player = player.rename(columns={'Player':'Name','Tm':'Team','G':'Game',
 player['Year'] = player['Year'].astype(int)
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+# app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SIMPLEX]) 
+# app = dash.Dash(__name__, external_stylesheets=[dbc.themes.UNITED]) 
+# app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LITERA]) 
+# app = dash.Dash(__name__, external_stylesheets=[dbc.themes.JOURNAL]) 
 server = app.server
 
 # Front-end - START
