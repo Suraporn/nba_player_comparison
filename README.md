@@ -67,9 +67,28 @@ To install `nba_player_comparison` locally, you can:
 git clone https://github.com/Suraporn/nba_player_comparison.git
 ```
 
-2. xxx
+2. Navigate to your local repository and prompt the command line and run:
 
-3. xxx
+```
+conda env create --file dataviz-532.yaml
+```
+
+The new environment `dataviz-532` will be created in your conda environment, and we will use this as the main environment.
+
+Activate the new environment by:
+```
+conda activate dataviz-532
+```
+
+3. Finally, run the app locally by: 
+
+- Open `VSCode`, navigate to the `src` folder under the `root` directory of the project, open `app.py` and run it by clicking `Run Python file` button on the top-right corner.
+
+- Open a command line, navigate to the `src` folder under the `root` directory of the project, run the following command to run the app locally:
+
+```
+python app.py
+```
 
 ## Get involved 
 
