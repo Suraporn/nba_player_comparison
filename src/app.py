@@ -265,7 +265,8 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
         anchor='start')).mark_point().encode(
         x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max)), axis=alt.Axis(labelExpr="format(datum.value, 'd')")),
         y = alt.Y(off_selection, title=off_stat),
-        color = alt.Color('Name', title='Player')
+        color = alt.Color('Name', title='Player'),
+        tooltip=alt.Tooltip(['Name', 'Year', off_selection])
     ).properties(
     width=700,
     height=200
@@ -275,7 +276,8 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
         anchor='start')).mark_line().encode(
         x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max)), axis=alt.Axis(labelExpr="format(datum.value, 'd')")),
         y = alt.Y(off_selection, title=off_stat),
-        color = alt.Color('Name', title='Player')
+        color = alt.Color('Name', title='Player'),
+        tooltip=alt.Tooltip(['Name', 'Year', off_selection])
     ).properties(
     width=700,
     height=200
@@ -297,7 +299,8 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
         anchor='start')).mark_point().encode(
         x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max)), axis=alt.Axis(labelExpr="format(datum.value, 'd')")),
         y = alt.Y(def_selection, title=def_stat),
-        color = alt.Color('Name', title='Player')
+        color = alt.Color('Name', title='Player'),
+        tooltip=alt.Tooltip(['Name', 'Year', def_selection])
     ).properties(
     width=700,
     height=200
@@ -307,7 +310,8 @@ def plot_altair(player_A, player_B, off_selection, def_selection, df=player.copy
         anchor='start')).mark_line().encode(
         x = alt.X('Year',scale=alt.Scale(domain=(x_min, x_max)), axis=alt.Axis(labelExpr="format(datum.value, 'd')")),
         y = alt.Y(def_selection, title=def_stat),
-        color = alt.Color('Name', title='Player')
+        color = alt.Color('Name', title='Player'),
+        tooltip=alt.Tooltip(['Name', 'Year', def_selection])
     ).properties(
     width=700,
     height=200
