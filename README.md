@@ -34,7 +34,7 @@ The most important thing is that we can honor and learn those former NBA superst
 
 ## Description of App
 
-The `NBA Player Comparison` app contains a landing page that shows NBA player skills in multiple categories. The visualization comprises the data of over xx NBA players among 30 NBA teams from 1950-2017. This app aims to help enthusiast NBA fans compare and understand abilities of players. 
+The `NBA Player Comparison` app contains a landing page that shows NBA player skills in multiple categories. The visualization comprises the data of over 2,417 NBA players among 30 NBA teams from 1950-2017. This app aims to help enthusiast NBA fans compare and understand abilities of players. 
 
 The visualization is designed to display multiple statistics of NBA players. The app allows users to search for a pair of interested NBA players by name with a search box item, the app then shows the corresponding player's information. Furthermore. the users are able to select both offensive skills and defensive skills to compare. The app provides functionalities as,
 
