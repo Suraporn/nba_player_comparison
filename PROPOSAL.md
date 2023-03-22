@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # Motivation and Purpose
 
 Our role: A data scientist consultancy firm.
