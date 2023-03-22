@@ -41,7 +41,7 @@ app.title = 'NBA Player Comparison'
 # Front-end - START
 app.layout = html.Div([
 
-    # Row1 = Title and Logo
+    # Row1-1 = Logo
     html.Div(
         style={
             'display': 'flex',
@@ -52,6 +52,19 @@ app.layout = html.Div([
         children=[
         # html.Img(src='/img/nba_logo.jpg'),
         # html.Img(src=dash.get_asset_url('img/nba_logo.png')),
+        html.Img(src=r'../img/NBA.jpeg', className="header-img")
+        ]
+    ),
+
+    # Row1-2 = Title
+    html.Div(
+        style={
+            'display': 'flex',
+            'justify-content': 'center',
+            'align-items': 'center',
+            # 'height': '5vh'
+        },
+        children=[
         html.H1('NBA Player Statistics Comparison', style={'textAlign': 'center', 'align-items':'center', 'justify-content':'center'})
         ]
     ),
