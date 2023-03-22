@@ -50,6 +50,7 @@ The data features will be used for this application are as followings:
  - `Defensive Rebound Percentage(DRBp)`
  - `Steal Percentage(STLp)`.
 
+Please be noted that some statistics with percentage(%) are not bound between 0%-100% because this is a specific indexes in Basketball, you can refer to the glossary [here](https://www.basketball-reference.com/about/glossary.html).
 
 # Primary research question and usage scenarios
 
