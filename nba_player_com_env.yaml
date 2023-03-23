@@ -1,4 +1,4 @@
-name: 'dataviz-532'
+name: 'nba_player_com_env'
 channels:
   - conda-forge
   - defaults

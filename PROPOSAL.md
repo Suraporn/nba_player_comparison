@@ -24,7 +24,7 @@ purple and gold dynasty with scored 33,643 points, 7,047 rebounds, and
 
 # Description of the data
 
-The NBA player stats data for the regular season will be retrieved from [The NBA Player Data in Kaggle](https://www.kaggle.com/datasets/drgilermo/nba-players-stats?select=Seasons_Stats.csv).
+The NBA player stats data for the regular season is retrieved from [The NBA Player Data in Kaggle](https://www.kaggle.com/datasets/drgilermo/nba-players-stats?select=Seasons_Stats.csv).
 Also the glossary of each statistics is provided [here](https://www.basketball-reference.com/about/glossary.html).
 
 

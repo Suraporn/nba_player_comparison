@@ -36,6 +36,8 @@ The most important thing is that we can honor and learn those former NBA superst
 
 The `NBA Player Comparison` app contains a landing page that shows NBA player skills in multiple categories. The visualization comprises the data of over 2,417 NBA players among 30 NBA teams from 1950-2017. This app aims to help enthusiast NBA fans compare and understand abilities of players. 
 
+The original data is retrieved from [The NBA Player Data in Kaggle](https://www.kaggle.com/datasets/drgilermo/nba-players-stats?select=Seasons_Stats.csv). Also the glossary of each statistics is provided [here](https://www.basketball-reference.com/about/glossary.html).
+
 The visualization is designed to display multiple statistics of NBA players. The app allows users to search for a pair of interested NBA players by name with a search box item, the app then shows the corresponding player's information. Furthermore. the users are able to select both offensive skills and defensive skills to compare. The app provides functionalities as,
 
 - Player name search bar to choose a pair of players to compare.
@@ -70,14 +72,14 @@ git clone https://github.com/Suraporn/nba_player_comparison.git
 2. Navigate to your local repository and prompt the command line and run:
 
 ```
-conda env create --file dataviz-532.yaml
+conda env create --file nba_player_com_env.yaml
 ```
 
-The new environment `dataviz-532` will be created in your conda environment, and we will use this as the main environment.
+The new environment `nba_player_com_env` will be created in your conda environment, and we will use this as the main environment.
 
 Activate the new environment by:
 ```
-conda activate dataviz-532
+conda activate nba_player_com_env
 ```
 
 3. Finally, run the app locally by: 
