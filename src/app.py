@@ -4,65 +4,24 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 import numpy as np
 import altair as alt
-# from vega_datasets import data
-# Handle large data sets without embedding them in the notebook
-# alt.data_transformers.enable('data_server')
-# Include an image for each plot since Gradescope only supports displaying plots as images
-# alt.renderers.enable('mimetype')
-# alt.renderers.enable('default')
 
-
-# Data - Loading and Pre-processing
-# raw = pd.read_csv(r'../data/player_stats.csv')
-# player = raw[['Player', 'Year', 'Pos', 'Tm', 'G',
-#              'FG%', 'FT%', '3P%', 'ORB%', 'AST%', 
-#              'BLK%', 'DRB%', 'STL%'
-#             ]]
-# player = player.fillna(0)
-# player = player.rename(columns={'Player':'Name','Tm':'Team','G':'Game',
-#              'FG%':'FGp', 'FT%':'FTp', '3P%':'3Pp', 'ORB%':'ORBp', 'AST%':'ASTp', 
-#              'BLK%':'BLKp', 'DRB%':'DRBp', 'STL%':'STLp'
-#             })
-# # player = player.tail(3000)
-# player['Year'] = player['Year'].astype(int)
-# player = player.groupby(['Name', 'Year']).mean().round(2).reset_index()
-
+# Read clean data
 player = pd.read_csv(r'../data/processed/player_stats_clean.csv')
 
+# Setup Dash
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-# app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SIMPLEX]) 
-# app = dash.Dash(__name__, external_stylesheets=[dbc.themes.UNITED]) 
-# app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LITERA]) 
-# app = dash.Dash(__name__, external_stylesheets=[dbc.themes.JOURNAL]) 
 server = app.server
 app.title = 'NBA Player Comparison'
-
 
 # Front-end - START
 app.layout = html.Div([
 
-    # Row1-1 = Logo
+    # Row1 = Title
     html.Div(
         style={
             'display': 'flex',
             'justify-content': 'center',
-            'align-items': 'center',
-            # 'height': '5vh'
-        },
-        children=[
-        # html.Img(src='/img/nba_logo.jpg'),
-        # html.Img(src=dash.get_asset_url('img/nba_logo.png')),
-        # html.Img(src=r'img/NBA.jpeg', className="header-img")
-        ]
-    ),
-
-    # Row1-2 = Title
-    html.Div(
-        style={
-            'display': 'flex',
-            'justify-content': 'center',
-            'align-items': 'center',
-            # 'height': '5vh'
+            'align-items': 'center'
         },
         children=[
         html.H1('NBA Player Statistics Comparison', style={'textAlign': 'center', 'align-items':'center', 'justify-content':'center'})
@@ -125,8 +84,7 @@ app.layout = html.Div([
         style={
             'display': 'flex',
             'justify-content': 'center',
-            'align-items': 'center',
-            # 'height': '5vh'
+            'align-items': 'center'
         },
         children=[
             dcc.Dropdown(
@@ -151,14 +109,12 @@ app.layout = html.Div([
                 'display': 'flex',
                 'justify-content': 'center',
                 'align-items': 'center',
-                # 'height': '45vh'
             },
             children=[
                 html.Iframe(
                         id='plot_off',
                         style={
                                 'border-width': '0',
-                                # 'width': '100%', 
                                 'width': '850px', 
                                 'height': '280px', 
                                 'justify-content': 'center',
@@ -175,8 +131,7 @@ app.layout = html.Div([
             'display': 'flex',
             'textAlign': 'center',
             'justify-content': 'center',
-            'align-items': 'center',
-            # 'height': '10vh'
+            'align-items': 'center'
         },
         children=[
             dcc.Dropdown(
@@ -199,8 +154,7 @@ app.layout = html.Div([
                 'display': 'flex',
                 'textAlign': 'center',
                 'justify-content': 'center',
-                'align-items': 'center',
-                # 'height': '45vh'
+                'align-items': 'center'
             },
             children=[
                 html.Iframe(
@@ -218,8 +172,6 @@ app.layout = html.Div([
     
 
 ],style={
-            # 'display': 'flex',
-            # 'justify-content': 'center',
             'align-items': 'center',
             'body': {
                 'background-color': 'darkgreen'
