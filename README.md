@@ -92,7 +92,7 @@ python app.py
 
 ## Get involved 
 
-If you have any new ideas and suggestions for improvement about this app, please feel free to contact us. The main contact email is: suraporn83@gmail.com
+If you have any new ideas and suggestions for improvement about this app, please feel free to contact us. The main contact email is: suraporn@student.ubc.ca
 
 Please note that it's very important to us that we maintain a positive and supportive environment for everyone who wants to participate. You can check the code of conduct for more details if you want to be with us.
 
