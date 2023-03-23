@@ -13,20 +13,21 @@ import altair as alt
 
 
 # Data - Loading and Pre-processing
-raw = pd.read_csv(r'../data/player_stats.csv')
-player = raw[['Player', 'Year', 'Pos', 'Tm', 'G',
-             'FG%', 'FT%', '3P%', 'ORB%', 'AST%', 
-             'BLK%', 'DRB%', 'STL%'
-            ]]
-player = player.fillna(0)
-player = player.rename(columns={'Player':'Name','Tm':'Team','G':'Game',
-             'FG%':'FGp', 'FT%':'FTp', '3P%':'3Pp', 'ORB%':'ORBp', 'AST%':'ASTp', 
-             'BLK%':'BLKp', 'DRB%':'DRBp', 'STL%':'STLp'
-            })
-# player = player.tail(3000)
-player['Year'] = player['Year'].astype(int)
-player = player.groupby(['Name', 'Year']).mean().round(2).reset_index()
+# raw = pd.read_csv(r'../data/player_stats.csv')
+# player = raw[['Player', 'Year', 'Pos', 'Tm', 'G',
+#              'FG%', 'FT%', '3P%', 'ORB%', 'AST%', 
+#              'BLK%', 'DRB%', 'STL%'
+#             ]]
+# player = player.fillna(0)
+# player = player.rename(columns={'Player':'Name','Tm':'Team','G':'Game',
+#              'FG%':'FGp', 'FT%':'FTp', '3P%':'3Pp', 'ORB%':'ORBp', 'AST%':'ASTp', 
+#              'BLK%':'BLKp', 'DRB%':'DRBp', 'STL%':'STLp'
+#             })
+# # player = player.tail(3000)
+# player['Year'] = player['Year'].astype(int)
+# player = player.groupby(['Name', 'Year']).mean().round(2).reset_index()
 
+player = pd.read_csv(r'../data/processed/player_stats_clean.csv')
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 # app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SIMPLEX]) 
@@ -35,7 +36,6 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 # app = dash.Dash(__name__, external_stylesheets=[dbc.themes.JOURNAL]) 
 server = app.server
 app.title = 'NBA Player Comparison'
-
 
 
 # Front-end - START
@@ -52,7 +52,7 @@ app.layout = html.Div([
         children=[
         # html.Img(src='/img/nba_logo.jpg'),
         # html.Img(src=dash.get_asset_url('img/nba_logo.png')),
-        html.Img(src=r'../img/NBA.jpeg', className="header-img")
+        # html.Img(src=r'img/NBA.jpeg', className="header-img")
         ]
     ),
 
@@ -221,6 +221,9 @@ app.layout = html.Div([
             # 'display': 'flex',
             # 'justify-content': 'center',
             'align-items': 'center',
+            'body': {
+                'background-color': 'darkgreen'
+                }
         })
 # Front-end - FINISH
 

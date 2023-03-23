@@ -28,7 +28,7 @@ The NBA player stats data for the regular season will be retrieved from [The NBA
 Also the glossary of each statistics is provided [here](https://www.basketball-reference.com/about/glossary.html).
 
 
-The data contains of 15,116 statistics of 2,417 NBA players among 30 NBA teams during 1950-2017.
+The data contains of 12,790 statistics of 2,417 NBA players among 30 NBA teams during 1950-2017.
 
 The data features will be used for this application are as followings:
 

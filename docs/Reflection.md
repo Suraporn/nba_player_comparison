@@ -6,4 +6,6 @@ Due to the time limitation of the project, there are something we have not imple
 
 - Some statistics with percentage(%) are not bound between 0%-100% because this is a specific indexes in Basketball, you can refer to the glossary [here](https://www.basketball-reference.com/about/glossary.html).
 
-- Even though, we did data cleaning and data preprocessing, we still found some uncleaned data such as a duplicated row of a player played in a certain year. This needs to be investigate more and clean it. We try to improve this in the next milestone.  
+- Even though, we did data cleaning and data pre-processing, we still found some uncleaned data such as a duplicated row of a player played in a certain year. This needs to be investigate more and clean it. We try to improve this in the next milestone.  
+
+- Having an NBA logo on the top, and change better background of the viz are considered in next milestone as well.
